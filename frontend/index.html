@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RecipeShare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            color: #333;
+        }
+        .recipe-list {
+            margin-top: 20px;
+        }
+        .recipe {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to RecipeShare</h1>
+    <p>Manage your recipes easily!</p>
+
+    <div class="recipe-list">
+        <div class="recipe">
+            <h2>Spaghetti Bolognese</h2>
+            <p>Ingredients: spaghetti, beef, tomato sauce, garlic, onions</p>
+        </div>
+        <div class="recipe">
+            <h2>Pancakes</h2>
+            <p>Ingredients: flour, milk, eggs, sugar, butter</p>
+        </div>
+    </div>
+
+    <p>This is your MVP frontend. Later you can add forms to add/edit recipes.</p>
+</body>
+</html>
+const express = require('express');
+const app = express();
+
+// Use the port Cloud Run provides via the environment variable, default to 8080
+const PORT = process.env.PORT || 8080;
+
+// Optional: a simple test route
+app.get('/', (req, res) => {
+  res.send('RecipeShare app is running!');
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
