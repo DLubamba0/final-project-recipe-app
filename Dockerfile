@@ -1,7 +1,17 @@
 FROM node:18
 WORKDIR /app
-COPY package*.json ./
+
+# Copy only package.json from the backend folder
+COPY backend/package.json ./  
+
+# Install dependencies
 RUN npm install
-COPY . .
+
+# Copy all backend files into /app
+COPY backend/. .
+
+# Expose the port your app uses
 EXPOSE 8080
-CMD ["node", "server.js"]
+
+# Start the app
+CMD ["node", "index.js"]
